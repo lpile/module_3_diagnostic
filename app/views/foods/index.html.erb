@@ -1,6 +1,6 @@
-<p><%= @food_count %> for <%= @foods_search_name %></p>
+<p><%= facade.count %> for <%= facade.search_name %></p>
 
-<% @foods.each do |food| %>
+<% facade.foods.each do |food| %>
   <ul class="foods">
     <li class="ndbnumber"><%= food.ndbnumber %></li>
     <li class="name"><%= food.name %></li>
