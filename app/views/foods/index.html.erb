@@ -1,10 +1,11 @@
-<p><%= @foods.count %> for <%= @foods.name %></p>
+<p><%= @food_count %> for <%= @foods_search_name %></p>
+
 <% @foods.each do |food| %>
-<ul class="food">
-  <li class="ndbnumber"><%= food.ndbnumber %></li>
-  <li class="name"><%= food.name %></li>
-  <li class="food-group"><%= food.food-group %></li>
-  <li class="data-source"><%= food.data-source %></li>
-  <li class="manufacturer"><%= food.manufacturer %></li>
-</ul>
+  <ul class="foods">
+    <li class="ndbnumber"><%= food.ndbnumber %></li>
+    <li class="name"><%= food.name %></li>
+    <li class="food-group"><%= food.food_group %></li>
+    <li class="data-source"><%= food.data_source %></li>
+    <li class="manufacturer"><%= food.manufacturer %></li>
+  </ul>
 <% end %>

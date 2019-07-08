@@ -17,6 +17,7 @@ feature 'User can search for food' do
 
     # Then I should see a total of the number of items returned by the search. (531 for sweet potatoes)
     expect(page).to have_content('531 for sweet potatoes')
+    
     # Then I should see a list of ten foods sorted by relevance.
     expect(page).to have_css(".foods", count: 10)
 
@@ -27,7 +28,11 @@ feature 'User can search for food' do
     # - The food's data source
     # - The food's manufacturer
     within(first('.foods')) do
-      expect(page).to have_all_of_selectors('.ndbnumber', '.name', 'food-group', 'data-source', 'manufacturer')
+      expect(page).to have_css(".ndbnumber")
+      expect(page).to have_css(".name")
+      expect(page).to have_css(".food-group")
+      expect(page).to have_css(".data-source")
+      expect(page).to have_css(".manufacturer")
     end
   end
 end
