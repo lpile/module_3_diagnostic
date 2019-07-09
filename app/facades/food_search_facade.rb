@@ -1,27 +1,23 @@
 class FoodSearchFacade
-  def initialize(q)
-    @q = q
+  attr_reader :food_query
+
+  def initialize(food_query)
+    @food_query = food_query
   end
 
   def foods
-    food_data = data_api_service.search_data(q)
-    food_data[:item][0..9].map do |food|
-      Food.new(food)
-    end
-  end
-
-  def search_name
-    q
+    food_data[:item].map {|food| Food.new(food)}
   end
 
   def count
-    total = data_api_service.search_data(q)
-    total[:total]
+    food_data[:total]
   end
 
   private
 
-  attr_reader :q
+  def food_data
+    @_food_data ||= data_api_service.search_data(food_query)
+  end
 
   def data_api_service
     DataApiService.new

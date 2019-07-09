@@ -1,6 +1,6 @@
 class DataApiService
   def search_data(q)
-    params = {q: q, api_key: ENV['api_key']}
+    params = {q: q, api_key: ENV['api_key'], max: 10}
     fetch_data('/ndb/search/', params)
   end
 
